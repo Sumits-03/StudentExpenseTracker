@@ -19,8 +19,16 @@ public class Main {
             System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = sc.nextInt();
+            int choice;
+
+            try {
+            choice = sc.nextInt();
             sc.nextLine();
+            } catch (Exception e) {
+            System.out.println("Please enter a valid number!");
+            sc.nextLine();
+            continue;
+            }
 
             switch (choice) {
 
@@ -29,11 +37,24 @@ public class Main {
                     String category = sc.nextLine();
 
                     System.out.print("Enter amount: ");
-                    double amount = sc.nextDouble();
-                    sc.nextLine();
+                    double amount;
+
+                    try {
+                        amount = sc.nextDouble();
+                        sc.nextLine();
+                    } catch (Exception e) {
+                        System.out.println("Please enter a valid amount!");
+                        sc.nextLine();
+                        continue;
+                    }
 
                     System.out.print("Enter date (YYYY-MM-DD): ");
                     String date = sc.nextLine();
+
+                    if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                        System.out.println("Invalid date format! Use YYYY-MM-DD.");
+                        continue;
+                    }
 
                     System.out.print("Enter description: ");
                     String description = sc.nextLine();
