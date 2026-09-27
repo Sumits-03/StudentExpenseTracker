@@ -173,4 +173,34 @@ public class ExpenseDAO {
             e.printStackTrace();
         }
     }
+
+    // CATEGORY SUMMARY
+// CATEGORY SUMMARY
+    public void showCategorySummary() {
+    String sql = "SELECT category, SUM(amount) AS total FROM expenses GROUP BY category";
+
+    try {
+        Connection con = DBConnection.getConnection();
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        System.out.println("\n===== CATEGORY SUMMARY =====");
+
+        while (rs.next()) {
+            System.out.println(
+                rs.getString("category") +
+                " : ₹" +
+                rs.getDouble("total")
+            );
+        }
+
+        rs.close();
+        ps.close();
+        con.close();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
 }

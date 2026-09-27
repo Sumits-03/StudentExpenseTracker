@@ -16,7 +16,8 @@ public class Main {
             System.out.println("4. Update Expense");
             System.out.println("5. Search Expense");
             System.out.println("6. Total Spending");
-            System.out.println("7. Exit");
+            System.out.println("7. Category Summary");
+            System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
 
             int choice;
@@ -131,6 +132,10 @@ public class Main {
                     break;
 
                 case 7:
+                    dao.showCategorySummary();
+                    break;
+
+                case 8:
                     System.out.println("Thank you for using Student Expense Tracker!");
                     sc.close();
                     return;
