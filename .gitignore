@@ -1,0 +1,12 @@
+# Java compiled files
+*.class
+
+# MySQL Connector JAR
+lib/*.jar
+
+# VS Code temporary files
+.history/
+
+# OS files
+.DS_Store
+Thumbs.db
