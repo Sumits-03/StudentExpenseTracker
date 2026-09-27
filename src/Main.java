@@ -36,12 +36,23 @@ public class Main {
                     System.out.print("Enter category: ");
                     String category = sc.nextLine();
 
+                    if (category.trim().isEmpty()) {
+                        System.out.println("Category cannot be empty!");
+                        continue;
+                    }
+
                     System.out.print("Enter amount: ");
                     double amount;
 
                     try {
                         amount = sc.nextDouble();
                         sc.nextLine();
+
+                        if (amount <= 0) {
+                            System.out.println("Amount must be greater than 0!");
+                            continue;
+                        }
+
                     } catch (Exception e) {
                         System.out.println("Please enter a valid amount!");
                         sc.nextLine();
